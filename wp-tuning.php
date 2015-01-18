@@ -4,7 +4,7 @@
 	Description: Quick and usefull wordpress tunes!
 	Author URI: http://www.ksenzov.ru
 	Author: gl_SPICE
-	Version: 1
+	Version: 2
 */
 
 defined( 'ABSPATH' ) or die( 'Plugin file cannot be accessed directly.' );
@@ -39,6 +39,7 @@ if ( ! class_exists( 'WP_Tuning' ) ) {
 					'wlwmanifest_link'			=> array( 'title' => 'Wlwmanifest', 'type' => 'checkbox' ),
 					'parent_post_rel_link'		=> array( 'title' => 'Parent post link', 'type' => 'checkbox' ),
 					'adjacent_posts_rel_link'	=> array( 'title' => 'Prev/Next post links', 'type' => 'checkbox' ),
+					'adjacent_posts_rel_link_wp_head'	=> array( 'title' => '... and remove SQL queries', 'type' => 'checkbox' ),
 					'wp_shortlink_wp_head'		=> array( 'title' => 'Shortlink for the page', 'type' => 'checkbox' )
 				)
 			),
@@ -137,7 +138,8 @@ if ( ! class_exists( 'WP_Tuning' ) ) {
 			$header_cleanup_actions = array(
 				'rsd_link', 'wp_generator', 'feed_links', 'feed_links_extra',
 				'index_rel_link', 'wlwmanifest_link', 'parent_post_rel_link',
-				'start_post_rel_link', 'adjacent_posts_rel_link', 'wp_shortlink_wp_head'
+				'start_post_rel_link', 'adjacent_posts_rel_link', 'adjacent_posts_rel_link_wp_head',
+				'wp_shortlink_wp_head'
 			);
 			
 			foreach ( $header_cleanup_actions as $key ) {
